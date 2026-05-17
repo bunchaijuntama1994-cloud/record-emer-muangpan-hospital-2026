@@ -1,275 +1,2510 @@
+<!-- =========================================================
+ER MPH NURSE NOTE 2026
+PART 1
+By Bunchai Juntama ENP 2026
+========================================================= -->
+
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEPSIS FAST TRACK - FINAL CORRECTED</title>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #1e3a8a; --accent: #ef4444; --success: #10b981;
-            --warning: #f59e0b; --info: #3b82f6; --bg: #f1f5f9; --dark: #0f172a;
-        }
-        body { font-family: 'Sarabun', sans-serif; background: var(--bg); margin: 0; padding: 15px; color: #1e293b; }
-        .app-container { max-width: 900px; margin: auto; }
-        .header { background: linear-gradient(135deg, var(--primary), #2563eb); color: white; padding: 25px; border-radius: 20px; text-align: center; margin-bottom: 25px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
-        .header h1 { margin: 0; font-family: 'Montserrat', sans-serif; font-size: 1.6rem; }
-        .card { background: white; border-radius: 15px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border-left: 6px solid #cbd5e1; }
-        .card-triage { border-left-color: var(--info); }
-        .card-vs { border-left-color: var(--warning); }
-        .card-treatment { border-left-color: var(--accent); }
-        .card-drug { border-left-color: #8b5cf6; } 
-        .card-monitoring { border-left-color: var(--success); }
-        h2 { font-size: 1.1rem; margin-top: 0; margin-bottom: 15px; color: var(--primary); display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #f1f5f9; padding-bottom: 10px; }
-        .row { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f8fafc; flex-wrap: wrap; gap: 10px; }
-        .label { font-weight: 700; flex: 1; min-width: 220px; font-size: 0.95rem; }
-        .controls { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-        input, select { padding: 8px; border: 2px solid #e2e8f0; border-radius: 8px; outline: none; font-size: 0.9rem; }
-        .btn-now { background: var(--accent); color: white; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 0.75rem; transition: 0.2s; }
-        .time-tag { background: #dbeafe; color: #1e40af; padding: 5px 10px; border-radius: 6px; font-family: monospace; font-weight: bold; min-width: 55px; text-align: center; }
-        .score-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; text-align: center; }
-        .score-item { background: #f8fafc; padding: 10px; border-radius: 10px; border: 1px solid #e2e8f0; }
-        .score-val { font-size: 1.8rem; font-weight: 800; display: block; }
-        .danger { color: var(--accent); } .safe { color: var(--success); }
-        .summary-card { background: var(--dark); color: #f8fafc; border-radius: 15px; padding: 25px; margin-top: 30px; }
-        .summary-body { background: #020617; padding: 15px; border-radius: 10px; font-family: 'Courier New', monospace; font-size: 0.85rem; line-height: 1.5; white-space: pre-wrap; color: #38bdf8; margin: 15px 0; border: 1px solid #1e293b; }
-        .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .btn-action { padding: 15px; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; color: white; font-size: 1rem; }
-        @media print { .btn-now, .btn-group, .header { display: none !important; } }
-    </style>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ER MPH Nurse Note 2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Kanit',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#00c6ff,#0072ff);
+    min-height:100vh;
+    padding:20px;
+}
+
+.container{
+    max-width:1500px;
+    margin:auto;
+}
+
+.header{
+    background:white;
+    border-radius:24px;
+    padding:30px;
+    text-align:center;
+    margin-bottom:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+.logo{
+    font-size:70px;
+}
+
+.title{
+    font-size:40px;
+    font-weight:700;
+    color:#0072ff;
+}
+
+.subtitle{
+    color:#555;
+    margin-top:10px;
+}
+
+.card{
+    background:white;
+    border-radius:22px;
+    padding:24px;
+    margin-bottom:20px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.1);
+}
+
+.card h2{
+    margin-bottom:20px;
+    color:#0072ff;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:16px;
+}
+
+input,select,textarea{
+    width:100%;
+    padding:12px;
+    border-radius:14px;
+    border:2px solid #dbe4ff;
+    font-size:15px;
+    margin-top:6px;
+}
+
+textarea{
+    min-height:100px;
+    resize:vertical;
+}
+
+button{
+    background:#0072ff;
+    color:white;
+    border:none;
+    padding:12px 18px;
+    border-radius:14px;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.2s;
+}
+
+button:hover{
+    background:#0056cc;
+}
+
+.flex{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    align-items:center;
+}
+
+.small-btn{
+    padding:10px 14px;
+}
+
+.score-box{
+    margin-top:20px;
+}
+
+.badge{
+    display:inline-block;
+    background:#0072ff;
+    color:white;
+    padding:10px 16px;
+    border-radius:30px;
+    margin-right:10px;
+    margin-top:10px;
+    font-weight:600;
+}
+
+.summary{
+    background:#111827;
+    color:#00ff99;
+    padding:20px;
+    border-radius:18px;
+    min-height:300px;
+    white-space:pre-wrap;
+    overflow:auto;
+    font-size:14px;
+}
+
+.timeline-item{
+    background:#1f2937;
+    border-left:5px solid #00ff99;
+    padding:12px;
+    margin-bottom:10px;
+    border-radius:12px;
+}
+
+.delete-btn{
+    background:#ff4d4d;
+    margin-top:10px;
+}
+
+.footer{
+    text-align:center;
+    color:white;
+    margin-top:30px;
+    font-weight:600;
+}
+
+.section-title{
+    margin-top:20px;
+    margin-bottom:10px;
+    color:#333;
+    font-size:18px;
+    font-weight:700;
+}
+
+@media(max-width:768px){
+
+    .title{
+        font-size:28px;
+    }
+
+    .logo{
+        font-size:50px;
+    }
+
+    .card{
+        padding:18px;
+    }
+
+}
+
+</style>
+
 </head>
+
 <body>
 
-<div class="app-container">
-    <div class="header">
-        <h1>Sepsis Fast Track Record</h1>
-        <p>Muangpan Hospital • Final Corrected System</p>
-    </div>
+<div class="container">
 
-    <!-- Arrival -->
-    <div class="card card-triage">
-        <h2>🏥 Arrival & Triage</h2>
-        <div class="row">
-            <span class="label">Visit ER (StartTime)</span>
-            <div class="controls"><span id="t-visit" class="time-tag">--:--</span><button class="btn-now" onclick="mark('visit')">NOW</button></div>
-        </div>
-        <div class="row">
-            <span class="label">Level of Triage</span>
-            <select id="lv-first" onchange="update()"><option>Level 1</option><option>Level 2</option><option>Level 3</option><option>Level 4</option><option>Level 5</option></select>
-        </div>
-        <div class="row">
-            <span class="label">Assess Time (ประเมินอาการ)</span>
-            <div class="controls"><span id="t-assess" class="time-tag">--:--</span><button class="btn-now" onclick="mark('assess')">NOW</button></div>
-        </div>
-    </div>
+<!-- ================================================= -->
+<!-- HEADER -->
+<!-- ================================================= -->
 
-    <!-- Vitals & Scores -->
-    <div class="card card-vs">
-        <h2>🌡️ Vital Signs & NEWS2</h2>
-        <div class="row">
-            <div class="controls">
-                T <input type="number" step="0.1" id="vs-t" style="width:50px" oninput="calc()">
-                PR <input type="number" id="vs-pr" style="width:50px" oninput="calc()">
-                RR <input type="number" id="vs-rr" style="width:50px" oninput="calc()">
-                BP <input type="text" id="vs-bp" style="width:80px" placeholder="120/80" oninput="calc()">
-                Sat <input type="number" id="vs-sat" style="width:50px" oninput="calc()">%
-            </div>
-        </div>
-        <div class="row">
-            <span class="label">Consciousness (AVPU)</span>
-            <select id="vs-avpu" onchange="calc()"><option value="A">Alert (A)</option><option value="VPU">V / P / U (Confusion)</option></select>
-        </div>
-        <div class="row">
-            <span class="label">O2 Supplement?</span>
-            <select id="vs-o2-score" onchange="calc()"><option value="0">Air (ไม่ใช้ O2)</option><option value="2">Oxygen (ใช้ O2)</option></select>
-        </div>
-        <div class="score-row">
-            <div class="score-item"><span class="score-label">SIRS SCORE</span><span id="res-sirs" class="score-val safe">0</span></div>
-            <div class="score-item"><span class="score-label">NEWS2 SCORE</span><span id="res-news" class="score-val safe">0</span></div>
-        </div>
-    </div>
+<div class="header">
 
-    <!-- 1-Hr Bundle -->
-    <div class="card card-treatment">
-        <h2>💉 1-Hr Bundle Treatment</h2>
-        <div class="row"><span class="label">Activated Sepsis Fast Track</span><div class="controls"><span id="t-active" class="time-tag">--:--</span><button class="btn-now" onclick="mark('active')">NOW</button></div></div>
-        <div class="row"><span class="label">เริ่มวินิจฉัย Sepsis (Time)</span><div class="controls"><span id="t-dx" class="time-tag">--:--</span><button class="btn-now" onclick="mark('dx')">NOW</button></div></div>
-        <div class="row"><span class="label">Alert RRT Sepsis</span><div class="controls"><select id="rrt-stat" onchange="update()"><option>ไม่ใช่</option><option>ใช่</option></select><span id="t-rrt" class="time-tag">--:--</span><button class="btn-now" onclick="mark('rrt')">NOW</button></div></div>
-        <div class="row"><span class="label">เริ่มให้สารน้ำ (IV Fluid)</span><div class="controls"><span id="t-fluid" class="time-tag">--:--</span><button class="btn-now" onclick="mark('fluid')">NOW</button></div></div>
-        <div class="row"><span class="label">เริ่มให้ยา ATB</span><div class="controls"><span id="t-atb" class="time-tag">--:--</span><button class="btn-now" onclick="mark('atb')">NOW</button></div></div>
-        <div class="row"><span class="label">เจาะ Blood Lactate #1</span><div class="controls"><span id="t-lac-draw" class="time-tag">--:--</span><button class="btn-now" onclick="mark('lac-draw')">NOW</button></div></div>
-        <div class="row">
-            <span class="label">Hemoculture Set 1 (Rt/Lt)</span>
-            <div class="controls"><select id="hc1-side"><option>Rt</option><option>Lt</option></select><span id="t-hc1" class="time-tag">--:--</span><button class="btn-now" onclick="mark('hc1')">NOW</button></div>
-        </div>
-        <div class="row">
-            <span class="label">Hemoculture Set 2 (Rt/Lt)</span>
-            <div class="controls"><select id="hc2-side"><option>Lt</option><option>Rt</option></select><span id="t-hc2" class="time-tag">--:--</span><button class="btn-now" onclick="mark('hc2')">NOW</button></div>
-        </div>
-        <div class="row"><span class="label">ผล Blood Lactate (mmol/L)</span><div class="controls"><input type="number" step="0.1" id="val-lac" style="width:70px"><span id="t-lac-res" class="time-tag">--:--</span><button class="btn-now" onclick="mark('lac-res')">NOW</button></div></div>
-    </div>
+<div class="logo">🏥🚑</div>
 
-    <!-- Vasopressor -->
-    <div class="card card-drug">
-        <h2>💊 Vasopressor Drug & Safety</h2>
-        <div class="row">
-            <span class="label">ได้รับ Vasopressor</span>
-            <div class="controls">
-                <select id="vaso-stat" onchange="update()"><option>ไม่ได้รับ</option><option>ได้รับ</option></select>
-                <span id="t-vaso" class="time-tag">--:--</span><button class="btn-now" onclick="mark('vaso')">NOW</button>
-            </div>
-        </div>
-        <div class="row">
-            <span class="label">Norepinephrine Admin</span>
-            <div class="controls">
-                <input type="number" id="ne-mg" placeholder="mg" style="width:50px"> mg + 5DW <input type="number" id="ne-ml" placeholder="ml" style="width:50px"> ml 
-                Conc: <select id="ne-conc"><option>(4:250)</option><option>(4:100)</option></select>
-                <span id="t-ne" class="time-tag">--:--</span><button class="btn-now" onclick="mark('ne')">NOW</button>
-            </div>
-        </div>
-        <div class="row">
-            <span class="label">Observe Phlebitis / Extravasation</span>
-            <div class="controls">
-                <select id="side-eff"><option>ไม่มี</option><option>มี</option></select>
-                <span id="t-side" class="time-tag">--:--</span><button class="btn-now" onclick="mark('side')">NOW</button>
-            </div>
-        </div>
-    </div>
+<div class="title">
+ER MPH Nurse Note 2026
+</div>
 
-    <!-- Monitoring -->
-    <div class="card card-monitoring">
-        <h2>🔍 Monitoring & Others</h2>
-        <div class="row"><span class="label">Monitor EKG / V/S (Time)</span><div class="controls"><span id="t-monitor" class="time-tag">--:--</span><button class="btn-now" onclick="mark('monitor')">NOW</button></div></div>
-        <div class="row"><span class="label">EKG 12 Lead (ปกติ/ผิดปกติ)</span><div class="controls">
-            <select id="ekg-res"><option>ปกติ</option><option>ผิดปกติ</option></select>
-            <span id="t-ekg" class="time-tag">--:--</span><button class="btn-now" onclick="mark('ekg')">NOW</button>
-        </div></div>
-        <div class="row"><span class="label">DTX Stat (mg/dL)</span><div class="controls">
-            <input type="number" id="val-dtx" style="width:70px">
-            <span id="t-dtx" class="time-tag">--:--</span><button class="btn-now" onclick="mark('dtx')">NOW</button>
-        </div></div>
-        <div class="row"><span class="label">IVC Evaluation (CI / DI %)</span><div class="controls">
-            CI <input type="number" id="val-ci" placeholder="%" style="width:55px"> DI <input type="number" id="val-di" placeholder="%" style="width:55px">
-            <span id="t-ivc" class="time-tag">--:--</span><button class="btn-now" onclick="mark('ivc')">NOW</button>
-        </div></div>
-        <div class="row"><span class="label">O2 Type / ETT Support</span><div class="controls">
-            <select id="o2-type"><option>Cannula</option><option>Mask Bag</option><option>ETT</option></select>
-            <span id="t-o2" class="time-tag">--:--</span><button class="btn-now" onclick="mark('o2')">NOW</button>
-        </div></div>
-        <div class="row"><span class="label">ETT No/Att/Dep</span><div class="controls">
-            No <input type="text" id="ett-no" style="width:35px"> Att <input type="number" id="ett-att" style="width:35px"> Dep <input type="number" id="ett-dep" style="width:35px">
-            <span id="t-ett" class="time-tag">--:--</span><button class="btn-now" onclick="mark('ett')">NOW</button>
-        </div></div>
-        <div class="row"><span class="label">Foley / Urine Out (ml)</span><div class="controls">
-            No <input type="text" id="f-no" style="width:35px"> UO <input type="number" id="u-out" style="width:50px">
-            <span id="t-foley" class="time-tag">--:--</span><button class="btn-now" onclick="mark('foley')">NOW</button>
-        </div></div>
-    </div>
+<div class="subtitle">
+Emergency Room Nursing Documentation System
+</div>
 
-    <!-- Disposition -->
-    <div class="card">
-        <h2>🏁 Disposition</h2>
-        <div class="row"><span class="label">Disposition To</span><div class="controls">
-            <select id="dis-to"><option>Admit Ward</option><option>Refer Out</option><option>D/C</option></select>
-            <span id="t-dis" class="time-tag">--:--</span><button class="btn-now" onclick="mark('dis')">NOW</button>
-        </div></div>
-        <div class="row"><span class="label">Refer Out To (LPH / KKH)</span><div class="controls">
-            <select id="ref-to"><option>LPH</option><option>KKH</option><option>Other</option></select>
-            <span id="t-ref" class="time-tag">--:--</span><button class="btn-now" onclick="mark('ref')">NOW</button>
-        </div></div>
-        <div class="row"><span class="label">Final DX / Source</span><div class="controls">
-            <select id="final-dx"><option>Sepsis</option><option>Severe Sepsis</option><option>Septic Shock</option></select>
-            <input type="text" id="cause" placeholder="Source" style="width:120px">
-        </div></div>
-        <div class="row"><span class="label">Record By</span><input type="text" id="recorder" style="flex:1"></div>
-    </div>
+</div>
 
-    <!-- Summary -->
-    <div class="summary-card">
-        <h3>📝 Clinical Summary</h3>
-        <div id="summary-text" class="summary-body">กรุณากรอกข้อมูล...</div>
-        <div class="btn-group">
-            <button class="btn-action" style="background:var(--success)" onclick="copyText()">📋 COPY TEXT</button>
-            <button class="btn-action" style="background:var(--primary)" onclick="window.print()">🖨️ PRINT PDF</button>
-        </div>
-    </div>
+<!-- ================================================= -->
+<!-- PATIENT INFO -->
+<!-- ================================================= -->
+
+<div class="card">
+
+<h2>📋 Patient Information</h2>
+
+<div class="grid">
+
+<div>
+<label>HN</label>
+<input type="text" id="hn">
+</div>
+
+<div>
+<label>👥 อายุ</label>
+<input type="number" id="age">
+</div>
+
+<div>
+<label>👩‍❤️‍👨 เพศ</label>
+<select id="gender">
+<option>ชาย</option>
+<option>หญิง</option>
+<option>LGBTQ+</option>
+</select>
+</div>
+
+<div>
+<label>📆 วันที่</label>
+
+<div class="flex">
+
+<input type="date" id="todayDate">
+
+<button class="small-btn"
+onclick="setToday()">
+Today
+</button>
+
+</div>
+
+</div>
+
+<div>
+<label>🏥 Visit ER เวลา</label>
+
+<div class="flex">
+
+<input type="time" id="visitER">
+
+<button class="small-btn"
+onclick="setNow('visitER')">
+Now
+</button>
+
+</div>
+
+</div>
+
+<div>
+<label>📊 First ER Triage เวลา</label>
+
+<div class="flex">
+
+<input type="time" id="firstTriage">
+
+<button class="small-btn"
+onclick="setNow('firstTriage')">
+Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================================================= -->
+<!-- VITAL SIGNS -->
+<!-- ================================================= -->
+
+<div class="card">
+
+<h2>📚 Vital Signs</h2>
+
+<div class="grid">
+
+<div>
+<label>BT °C</label>
+<input type="number" id="bt">
+</div>
+
+<div>
+<label>RR</label>
+<input type="number" id="rr">
+</div>
+
+<div>
+<label>HR</label>
+<input type="number" id="hr">
+</div>
+
+<div>
+<label>BP SYS</label>
+<input type="number" id="bps">
+</div>
+
+<div>
+<label>BP DIA</label>
+<input type="number" id="bpd">
+</div>
+
+<div>
+<label>SpO2 %</label>
+<input type="number" id="spo2">
+</div>
+
+<div>
+<label>ใช้ออกซิเจน</label>
+<select id="oxygenUse">
+<option value="no">ไม่ใช้</option>
+<option value="yes">ใช้</option>
+</select>
+</div>
+
+<div>
+<label>ระดับความรู้สึกตัว</label>
+<select id="avpu">
+<option value="A">A</option>
+<option value="V">V</option>
+<option value="P">P</option>
+<option value="U">U</option>
+</select>
+</div>
+
+</div>
+
+<div class="flex" style="margin-top:20px;">
+
+<button onclick="calculateScores()">
+Calculate SIRS / NEWS2
+</button>
+
+<button onclick="saveVitals()">
+Save Vital Signs
+</button>
+
+<button class="delete-btn"
+onclick="clearVitals()">
+Clear
+</button>
+
+</div>
+
+<div class="score-box" id="scoreBox"></div>
+
+</div>
+
+<!-- ================================================= -->
+<!-- NURSE TRIAGE -->
+<!-- ================================================= -->
+
+<div class="card">
+
+<h2>👩🏼‍⚕️ Nurse Triage</h2>
+
+<textarea id="nurseTriage"></textarea>
+
+<div class="flex" style="margin-top:15px;">
+
+<input type="time" id="nurseTriageTime">
+
+<button onclick="setNow('nurseTriageTime')">
+Now
+</button>
+
+<button onclick="saveNurseTriage()">
+Save Nurse Triage
+</button>
+
+</div>
+
+</div>
+
+<!-- ================================================= -->
+<!-- ESI -->
+<!-- ================================================= -->
+
+<div class="card">
+
+<h2>🆘 Level Triage</h2>
+
+<div class="grid">
+
+<div>
+
+<label>ESI Level</label>
+
+<select id="esiLevel">
+<option>ESI 1</option>
+<option>ESI 2</option>
+<option>ESI 3</option>
+<option>ESI 4</option>
+<option>ESI 5</option>
+</select>
+
+</div>
+
+<div>
+
+<label>เวลา</label>
+
+<div class="flex">
+
+<input type="time" id="esiTime">
+
+<button onclick="setNow('esiTime')">
+Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<button style="margin-top:20px;"
+onclick="saveESI()">
+Save ESI
+</button>
+
+</div>
+
+<!-- ================================================= -->
+<!-- PRIMARY SURVEY -->
+<!-- ================================================= -->
+
+<div class="card">
+
+<h2>🚨 Primary Survey</h2>
+
+<!-- AIRWAY -->
+
+<div class="section-title">
+1.) Airway
+</div>
+
+<div class="grid">
+
+<div>
+
+<label>Status</label>
+
+<select id="airwayStatus">
+<option>Pass</option>
+<option>Not pass</option>
+</select>
+
+</div>
+
+<div>
+
+<label>เวลา</label>
+
+<div class="flex">
+
+<input type="time" id="airwayTime">
+
+<button onclick="setNow('airwayTime')">
+Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<textarea
+id="airwayDetail"
+placeholder="รายละเอียด Airway">
+</textarea>
+
+<button style="margin-top:15px;"
+onclick="savePrimary('Airway')">
+Save Airway
+</button>
+
+<hr style="margin:30px 0;">
+
+<!-- BREATHING -->
+
+<div class="section-title">
+2.) Breathing
+</div>
+
+<div class="grid">
+
+<div>
+
+<label>Status</label>
+
+<select id="breathingStatus">
+<option>Pass</option>
+<option>Not pass</option>
+</select>
+
+</div>
+
+<div>
+
+<label>เวลา</label>
+
+<div class="flex">
+
+<input type="time" id="breathingTime">
+
+<button onclick="setNow('breathingTime')">
+Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<textarea
+id="breathingDetail"
+placeholder="รายละเอียด Breathing">
+</textarea>
+
+<button style="margin-top:15px;"
+onclick="savePrimary('Breathing')">
+Save Breathing
+</button>
+
+<hr style="margin:30px 0;">
+
+<!-- CIRCULATION -->
+
+<div class="section-title">
+3.) Circulation
+</div>
+
+<div class="grid">
+
+<div>
+
+<label>Status</label>
+
+<select id="circulationStatus">
+<option>Pass</option>
+<option>Not pass</option>
+</select>
+
+</div>
+
+<div>
+
+<label>เวลา</label>
+
+<div class="flex">
+
+<input type="time" id="circulationTime">
+
+<button onclick="setNow('circulationTime')">
+Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<textarea
+id="circulationDetail"
+placeholder="รายละเอียด Circulation">
+</textarea>
+
+<button style="margin-top:15px;"
+onclick="savePrimary('Circulation')">
+Save Circulation
+</button>
+
+<hr style="margin:30px 0;">
+
+<!-- DISABILITY -->
+
+<div class="section-title">
+4.) Disability
+</div>
+
+<div class="grid">
+
+<div>
+
+<label>Status</label>
+
+<select id="disabilityStatus">
+<option>Pass</option>
+<option>Not pass</option>
+</select>
+
+</div>
+
+<div>
+
+<label>เวลา</label>
+
+<div class="flex">
+
+<input type="time" id="disabilityTime">
+
+<button onclick="setNow('disabilityTime')">
+Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<textarea
+id="disabilityDetail"
+placeholder="รายละเอียด Disability">
+</textarea>
+
+<button style="margin-top:15px;"
+onclick="savePrimary('Disability')">
+Save Disability
+</button>
+
+</div>
+
+<!-- ================================================= -->
+<!-- SUMMARY -->
+<!-- ================================================= -->
+
+<div class="card">
+
+<h2>📄 Summary Timeline</h2>
+
+<div class="flex" style="margin-bottom:20px;">
+
+<button onclick="copySummary()">
+Copy Summary
+</button>
+
+<button onclick="clearSummary()"
+class="delete-btn">
+Clear Summary
+</button>
+
+</div>
+
+<div class="summary" id="summaryTimeline">
+
+ER MPH Nurse Note Timeline Ready...
+
+</div>
+
+</div>
+
+<div class="footer">
+
+By Bunchai Juntama ENP 2026
+
+</div>
+
 </div>
 
 <script>
-    let startTime = null;
 
-    function mark(id) {
-        const now = new Date();
-        const timeStr = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0');
-        document.getElementById('t-' + id).innerText = timeStr;
-        if (id === 'visit') startTime = now;
-        update();
-    }
+/* ======================================================
+GLOBAL FUNCTIONS
+====================================================== */
 
-    function calc() {
-        let sirs = 0;
-        const t = parseFloat(document.getElementById('vs-t').value);
-        const hr = parseInt(document.getElementById('vs-pr').value);
-        const rr = parseInt(document.getElementById('vs-rr').value);
-        const sat = parseInt(document.getElementById('vs-sat').value);
-        const o2Score = parseInt(document.getElementById('vs-o2-score').value);
-        const avpu = document.getElementById('vs-avpu').value;
+function setToday(){
 
-        if (t > 38 || t < 36) sirs++; if (hr > 90) sirs++; if (rr > 20) sirs++;
-        document.getElementById('res-sirs').innerText = sirs;
-        document.getElementById('res-sirs').className = 'score-val ' + (sirs >= 2 ? 'danger' : 'safe');
+document.getElementById('todayDate').value =
+new Date().toISOString().split('T')[0];
 
-        let news = o2Score;
-        if (rr >= 25 || rr <= 8) news += 3; else if (rr >= 21) news += 2;
-        if (hr >= 131 || hr <= 40) news += 3; else if (hr >= 111 || hr <= 50) news += 2;
-        if (sat <= 91) news += 3; else if (sat <= 93) news += 2; else if (sat <= 95) news += 1;
-        if (avpu !== 'A') news += 3;
-        document.getElementById('res-news').innerText = news;
-        document.getElementById('res-news').className = 'score-val ' + (news >= 5 ? 'danger' : (news >= 3 ? 'warning' : 'safe'));
-        update();
-    }
+}
 
-    function update() {
-        let diffText = "N/A";
-        const tDis = document.getElementById('t-dis').innerText;
-        if (startTime && tDis !== "--:--") {
-            const [h, m] = tDis.split(':');
-            const end = new Date(); end.setHours(h); end.setMinutes(m);
-            const diffMins = Math.round((end - startTime) / 60000);
-            diffText = `${diffMins} min`;
-        }
+function setNow(id){
 
-        let s = `--- SEPSIS FAST TRACK: MUANGPAN HOSPITAL ---\n`;
-        s += `[ARRIVAL] Visit:${document.getElementById('t-visit').innerText} | Triage:${document.getElementById('lv-first').value} | Assess:${document.getElementById('t-assess').innerText}\n`;
-        s += `[VITALS] T:${document.getElementById('vs-t').value} PR:${document.getElementById('vs-pr').value} RR:${document.getElementById('vs-rr').value} BP:${document.getElementById('vs-bp').value} SpO2:${document.getElementById('vs-sat').value}% (${document.getElementById('vs-o2-score').value == 0 ? 'RA':'O2'})\n`;
-        s += `[SCORES] SIRS: ${document.getElementById('res-sirs').innerText} | NEWS2: ${document.getElementById('res-news').innerText}\n\n`;
-        
-        s += `[1-HR BUNDLE]\n- Active:${document.getElementById('t-active').innerText} | DX:${document.getElementById('t-dx').innerText} | RRT:${document.getElementById('rrt-stat').value}(${document.getElementById('t-rrt').innerText})\n`;
-        s += `- IV Fluid:${document.getElementById('t-fluid').innerText} | ATB:${document.getElementById('t-atb').innerText}\n`;
-        s += `- Lactate Draw:${document.getElementById('t-lac-draw').innerText} | Result:${document.getElementById('val-lac').value} mmol/L @${document.getElementById('t-lac-res').innerText}\n`;
-        s += `- HC Set 1:${document.getElementById('hc1-side').value} @${document.getElementById('t-hc1').innerText} | HC Set 2:${document.getElementById('hc2-side').value} @${document.getElementById('t-hc2').innerText}\n\n`;
-        
-        s += `[DRUGS & SAFETY]\n- Vasopressor: ${document.getElementById('vaso-stat').value} (${document.getElementById('t-vaso').innerText})\n`;
-        s += `- Norepinephrine: ${document.getElementById('ne-mg').value}mg + 5DW ${document.getElementById('ne-ml').value}ml (Conc ${document.getElementById('ne-conc').value}) @${document.getElementById('t-ne').innerText}\n`;
-        s += `- Side Effect: ${document.getElementById('side-eff').value} @${document.getElementById('t-side').innerText}\n\n`;
-        
-        s += `[MONITORING]\n- EKG Monitor:${document.getElementById('t-monitor').innerText} | EKG 12 Lead:${document.getElementById('ekg-res').value} @${document.getElementById('t-ekg').innerText}\n`;
-        s += `- DTX:${document.getElementById('val-dtx').value} (${document.getElementById('t-dtx').innerText})\n`;
-        s += `- IVC Evaluation: CI ${document.getElementById('val-ci').value}%, DI ${document.getElementById('val-di').value}% @${document.getElementById('t-ivc').innerText}\n`;
-        s += `- O2:${document.getElementById('o2-type').value} @${document.getElementById('t-o2').innerText} | ETT No:${document.getElementById('ett-no').value}, Att:${document.getElementById('ett-att').value}, Dep:${document.getElementById('ett-dep').value} @${document.getElementById('t-ett').innerText}\n`;
-        s += `- Foley No:${document.getElementById('f-no').value} @${document.getElementById('t-foley').innerText} | Urine:${document.getElementById('u-out').value} ml\n\n`;
-        
-        s += `[DISPOSITION]\n- Status: ${document.getElementById('dis-to').value} @${document.getElementById('t-dis').innerText}\n`;
-        s += `- Refer To: ${document.getElementById('ref-to').value} @${document.getElementById('t-ref').innerText}\n`;
-        s += `- Final DX: ${document.getElementById('final-dx').value} (${document.getElementById('cause').value})\n`;
-        s += `- PERFORMANCE (Door to Dispo): ${diffText}\n`;
-        s += `- Recorder: ${document.getElementById('recorder').value}\n`;
-        s += `Record At: ${new Date().toLocaleString('th-TH')}`;
+const now = new Date();
 
-        document.getElementById('summary-text').innerText = s;
-    }
+document.getElementById(id).value =
+now.toTimeString().slice(0,5);
 
-    function copyText() { navigator.clipboard.writeText(document.getElementById('summary-text').innerText); alert("คัดลอกสำเร็จ!"); }
+}
+
+setToday();
+
+/* ======================================================
+SUMMARY ENGINE
+====================================================== */
+
+function appendSummary(text){
+
+const timeline =
+document.getElementById('summaryTimeline');
+
+const time =
+new Date().toLocaleTimeString();
+
+timeline.innerHTML +=
+`
+<div class="timeline-item">
+[${time}] ${text}
+</div>
+`;
+
+}
+
+/* ======================================================
+VITAL SIGNS
+====================================================== */
+
+function calculateScores(){
+
+let temp =
+parseFloat(document.getElementById('bt').value)||0;
+
+let rr =
+parseFloat(document.getElementById('rr').value)||0;
+
+let hr =
+parseFloat(document.getElementById('hr').value)||0;
+
+let spo2 =
+parseFloat(document.getElementById('spo2').value)||0;
+
+let sys =
+parseFloat(document.getElementById('bps').value)||0;
+
+let sirs = 0;
+
+if(temp > 38 || temp < 36) sirs++;
+if(hr > 90) sirs++;
+if(rr > 20) sirs++;
+
+let news = 0;
+
+if(rr >= 25) news += 3;
+else if(rr >= 21) news += 2;
+
+if(spo2 <= 91) news += 3;
+else if(spo2 <= 93) news += 2;
+else if(spo2 <= 95) news += 1;
+
+if(sys <= 90) news += 3;
+else if(sys <= 100) news += 2;
+
+if(hr >= 131 || hr <= 40) news += 3;
+else if(hr >= 111) news += 2;
+else if(hr >= 91) news += 1;
+
+document.getElementById('scoreBox').innerHTML =
+`
+<div class="badge">
+SIRS = ${sirs}
+</div>
+
+<div class="badge">
+NEWS2 = ${news}
+</div>
+`;
+
+}
+
+function saveVitals(){
+
+calculateScores();
+
+appendSummary(
+'Vital Signs recorded'
+);
+
+}
+
+function clearVitals(){
+
+document.getElementById('bt').value='';
+document.getElementById('rr').value='';
+document.getElementById('hr').value='';
+document.getElementById('bps').value='';
+document.getElementById('bpd').value='';
+document.getElementById('spo2').value='';
+
+document.getElementById('scoreBox').innerHTML='';
+
+}
+
+/* ======================================================
+NURSE TRIAGE
+====================================================== */
+
+function saveNurseTriage(){
+
+const note =
+document.getElementById('nurseTriage').value;
+
+appendSummary(
+'Nurse Triage : ' + note
+);
+
+}
+
+/* ======================================================
+ESI
+====================================================== */
+
+function saveESI(){
+
+const esi =
+document.getElementById('esiLevel').value;
+
+appendSummary(
+'Triage Level : ' + esi
+);
+
+}
+
+/* ======================================================
+PRIMARY SURVEY
+====================================================== */
+
+function savePrimary(type){
+
+let status = '';
+let detail = '';
+
+if(type==='Airway'){
+
+status =
+document.getElementById('airwayStatus').value;
+
+detail =
+document.getElementById('airwayDetail').value;
+
+}
+
+if(type==='Breathing'){
+
+status =
+document.getElementById('breathingStatus').value;
+
+detail =
+document.getElementById('breathingDetail').value;
+
+}
+
+if(type==='Circulation'){
+
+status =
+document.getElementById('circulationStatus').value;
+
+detail =
+document.getElementById('circulationDetail').value;
+
+}
+
+if(type==='Disability'){
+
+status =
+document.getElementById('disabilityStatus').value;
+
+detail =
+document.getElementById('disabilityDetail').value;
+
+}
+
+appendSummary(
+type + ' : ' + status + ' | ' + detail
+);
+
+}
+
+/* ======================================================
+SUMMARY TOOLS
+====================================================== */
+
+function copySummary(){
+
+navigator.clipboard.writeText(
+document.getElementById('summaryTimeline').innerText
+);
+
+alert('Summary copied');
+
+}
+
+function clearSummary(){
+
+document.getElementById('summaryTimeline').innerHTML='';
+
+}
+
 </script>
+<!-- ================================================= -->
+<!-- PART 2 -->
+<!-- ================================================= -->
+
+<!-- ================================================= -->
+<!-- RRT PROTOCOL -->
+<!-- ================================================= -->
+
+<div class="card">
+
+<h2>🚑 Alert Fast Track RRT Protocol</h2>
+
+<div class="grid">
+
+<div>
+
+<label>RRT Protocol</label>
+
+<select id="rrtProtocol">
+<option>Yes</option>
+<option>No</option>
+</select>
+
+</div>
+
+<div>
+
+<label>เวลา</label>
+
+<div class="flex">
+
+<input type="time" id="rrtTime">
+
+<button onclick="setNow('rrtTime')">
+Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<button style="margin-top:20px;"
+onclick="saveRRT()">
+Save RRT Protocol
+</button>
+
+</div>
+
+<!-- ================================================= -->
+<!-- ER DOCTOR -->
+<!-- ================================================= -->
+
+<div class="card">
+
+<h2>🏪 แพทย์ ER ประเมินอาการ</h2>
+
+<div class="grid">
+
+<div>
+
+<label>ชื่อแพทย์</label>
+
+<input type="text" id="doctorName">
+
+</div>
+
+<div>
+
+<label>เวลา</label>
+
+<div class="flex">
+
+<input type="time" id="doctorAssessTime">
+
+<button onclick="setNow('doctorAssessTime')">
+Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<button style="margin-top:20px;"
+onclick="saveDoctorAssessment()">
+Save Doctor Assessment
+</button>
+
+<hr style="margin:30px 0;">
+
+<h2>🧑🏻‍⚕️ แพทย์วินิจฉัยให้การรักษา</h2>
+
+<textarea
+id="doctorTreatment">
+</textarea>
+
+<div class="flex" style="margin-top:15px;">
+
+<input type="time" id="doctorTreatmentTime">
+
+<button onclick="setNow('doctorTreatmentTime')">
+Now
+</button>
+
+<button onclick="saveDoctorTreatment()">
+Save Treatment
+</button>
+
+</div>
+
+</div>
+
+<!-- ================================================= -->
+<!-- OXYGEN -->
+<!-- ================================================= -->
+
+<div class="card">
+
+<h2>🌡️ Oxygen Supplement</h2>
+
+<div class="grid">
+
+<div>
+
+<label>ใช้ออกซิเจน</label>
+
+<select id="oxygenStatus">
+<option>No</option>
+<option>Yes</option>
+</select>
+
+</div>
+
+<div>
+
+<label>ชนิด Oxygen</label>
+
+<select id="oxygenType">
+<option>Cannula</option>
+<option>Mask with bag</option>
+<option>BVM ETT</option>
+</select>
+
+</div>
+
+<div>
+
+<label>O2 Flow (lpm)</label>
+
+<input type="number" id="oxygenFlow">
+
+</div>
+
+<div>
+
+<label>เวลา</label>
+
+<div class="flex">
+
+<input type="time" id="oxygenTime">
+
+<button onclick="setNow('oxygenTime')">
+Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<button style="margin-top:20px;"
+onclick="saveOxygen()">
+Save Oxygen
+</button>
+
+</div>
+
+<!-- ================================================= -->
+<!-- INVESTIGATION -->
+<!-- ================================================= -->
+
+<div class="card">
+
+<h2>🧪 Investigation Lab</h2>
+
+<textarea
+id="labInvestigation">
+</textarea>
+
+<div class="flex" style="margin-top:15px;">
+
+<input type="time" id="labTime">
+
+<button onclick="setNow('labTime')">
+Now
+</button>
+
+<button onclick="saveLab()">
+Save Investigation
+</button>
+
+</div>
+
+<hr style="margin:30px 0;">
+
+<h2>🩸 DTX Stat</h2>
+
+<div class="grid">
+
+<div>
+
+<label>DTX mg/dL</label>
+
+<input type="number" id="dtxValue">
+
+</div>
+
+<div>
+
+<label>เวลา</label>
+
+<div class="flex">
+
+<input type="time" id="dtxTime">
+
+<button onclick="setNow('dtxTime')">
+Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<button style="margin-top:20px;"
+onclick="saveDTX()">
+Save DTX
+</button>
+
+<hr style="margin:30px 0;">
+
+<h2>🩸 Blood Lactate Stat</h2>
+
+<div class="grid">
+
+<div>
+
+<label>Lactate mmol/L</label>
+
+<input type="number" id="lactateValue">
+
+</div>
+
+<div>
+
+<label>เวลา</label>
+
+<div class="flex">
+
+<input type="time" id="lactateTime">
+
+<button onclick="setNow('lactateTime')">
+Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<button style="margin-top:20px;"
+onclick="saveLactate()">
+Save Lactate
+</button>
+
+</div>
+
+<!-- ================================================= -->
+<!-- HEMOCULTURE -->
+<!-- ================================================= -->
+
+<div class="card">
+
+<h2>🧪 Take Hemoculture 1</h2>
+
+<div class="grid">
+
+<div>
+
+<label>Status</label>
+
+<select id="hemo1Status">
+<option>Yes</option>
+<option>No</option>
+</select>
+
+</div>
+
+<div>
+
+<label>ตำแหน่ง</label>
+
+<select id="hemo1Side">
+<option>Rt</option>
+<option>Lt</option>
+</select>
+
+</div>
+
+<div>
+
+<label>เวลา</label>
+
+<div class="flex">
+
+<input type="time" id="hemo1Time">
+
+<button onclick="setNow('hemo1Time')">
+Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<button style="margin-top:20px;"
+onclick="saveHemoculture1()">
+Save Hemoculture 1
+</button>
+
+<hr style="margin:30px 0;">
+
+<h2>🧪 Take Hemoculture 2</h2>
+
+<div class="grid">
+
+<div>
+
+<label>Status</label>
+
+<select id="hemo2Status">
+<option>Yes</option>
+<option>No</option>
+</select>
+
+</div>
+
+<div>
+
+<label>ตำแหน่ง</label>
+
+<select id="hemo2Side">
+<option>Rt</option>
+<option>Lt</option>
+</select>
+
+</div>
+
+<div>
+
+<label>เวลา</label>
+
+<div class="flex">
+
+<input type="time" id="hemo2Time">
+
+<button onclick="setNow('hemo2Time')">
+Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<button style="margin-top:20px;"
+onclick="saveHemoculture2()">
+Save Hemoculture 2
+</button>
+
+</div>
+
+<!-- ================================================= -->
+<!-- ANTIBIOTIC -->
+<!-- ================================================= -->
+
+<div class="card">
+
+<h2>💊 Antibiotic</h2>
+
+<div class="grid">
+
+<div>
+
+<label>Status</label>
+
+<select id="abxStatus">
+<option>Yes</option>
+<option>No</option>
+</select>
+
+</div>
+
+<div>
+
+<label>ชื่อยา</label>
+
+<input type="text" id="abxName">
+
+</div>
+
+<div>
+
+<label>เวลา</label>
+
+<div class="flex">
+
+<input type="time" id="abxTime">
+
+<button onclick="setNow('abxTime')">
+Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<button style="margin-top:20px;"
+onclick="saveAntibiotic()">
+Save Antibiotic
+</button>
+
+</div>
+
+<!-- ================================================= -->
+<!-- IVF -->
+<!-- ================================================= -->
+
+<div class="card">
+
+<h2>💉 IVF</h2>
+
+<div class="grid">
+
+<div>
+
+<label>ชนิดสารน้ำ</label>
+
+<select id="ivfType">
+<option>NSS</option>
+<option>Acetar</option>
+<option>LRS</option>
+<option>5DN/2</option>
+<option>5DNSS</option>
+<option>5DW</option>
+</select>
+
+</div>
+
+<div>
+
+<label>IV Rate ml/hr</label>
+
+<input type="number" id="ivfRate">
+
+</div>
+
+<div>
+
+<label>ตำแหน่ง</label>
+
+<select id="ivfSide">
+<option>Rt</option>
+<option>Lt</option>
+</select>
+
+</div>
+
+<div>
+
+<label>เวลา</label>
+
+<div class="flex">
+
+<input type="time" id="ivfTime">
+
+<button onclick="setNow('ivfTime')">
+Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<button style="margin-top:20px;"
+onclick="saveIVF()">
+Save IVF
+</button>
+
+<hr style="margin:30px 0;">
+
+<h2>💉 Load IVF</h2>
+
+<div class="grid">
+
+<div>
+
+<label>Status</label>
+
+<select id="loadStatus">
+<option>No</option>
+<option>Yes</option>
+</select>
+
+</div>
+
+<div>
+
+<label>ชนิดสารน้ำ</label>
+
+<select id="loadType">
+<option>NSS</option>
+<option>Acetar</option>
+<option>LRS</option>
+</select>
+
+</div>
+
+<div>
+
+<label>ปริมาณ ml</label>
+
+<input type="number" id="loadVolume">
+
+</div>
+
+<div>
+
+<label>เวลา</label>
+
+<div class="flex">
+
+<input type="time" id="loadTime">
+
+<button onclick="setNow('loadTime')">
+Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<button style="margin-top:20px;"
+onclick="saveLoadIVF()">
+Save Load IVF
+</button>
+
+</div>
+
+<script>
+
+/* ======================================================
+RRT
+====================================================== */
+
+function saveRRT(){
+
+const rrt =
+document.getElementById('rrtProtocol').value;
+
+appendSummary(
+'RRT Protocol : ' + rrt
+);
+
+}
+
+/* ======================================================
+DOCTOR
+====================================================== */
+
+function saveDoctorAssessment(){
+
+const doctor =
+document.getElementById('doctorName').value;
+
+appendSummary(
+'ER Doctor Assessment : ' + doctor
+);
+
+}
+
+function saveDoctorTreatment(){
+
+const treatment =
+document.getElementById('doctorTreatment').value;
+
+appendSummary(
+'Treatment : ' + treatment
+);
+
+}
+
+/* ======================================================
+OXYGEN
+====================================================== */
+
+function saveOxygen(){
+
+const status =
+document.getElementById('oxygenStatus').value;
+
+const type =
+document.getElementById('oxygenType').value;
+
+const flow =
+document.getElementById('oxygenFlow').value;
+
+appendSummary(
+'Oxygen : ' +
+status +
+' | ' +
+type +
+' | ' +
+flow +
+' lpm'
+);
+
+}
+
+/* ======================================================
+LAB
+====================================================== */
+
+function saveLab(){
+
+const lab =
+document.getElementById('labInvestigation').value;
+
+appendSummary(
+'Investigation : ' + lab
+);
+
+}
+
+function saveDTX(){
+
+const dtx =
+document.getElementById('dtxValue').value;
+
+appendSummary(
+'DTX : ' + dtx + ' mg/dL'
+);
+
+}
+
+function saveLactate(){
+
+const lactate =
+document.getElementById('lactateValue').value;
+
+appendSummary(
+'Blood Lactate : ' +
+lactate +
+' mmol/L'
+);
+
+}
+
+/* ======================================================
+HEMOCULTURE
+====================================================== */
+
+function saveHemoculture1(){
+
+const status =
+document.getElementById('hemo1Status').value;
+
+const side =
+document.getElementById('hemo1Side').value;
+
+appendSummary(
+'Hemoculture 1 : ' +
+status +
+' | ' +
+side
+);
+
+}
+
+function saveHemoculture2(){
+
+const status =
+document.getElementById('hemo2Status').value;
+
+const side =
+document.getElementById('hemo2Side').value;
+
+appendSummary(
+'Hemoculture 2 : ' +
+status +
+' | ' +
+side
+);
+
+}
+
+/* ======================================================
+ANTIBIOTIC
+====================================================== */
+
+function saveAntibiotic(){
+
+const status =
+document.getElementById('abxStatus').value;
+
+const drug =
+document.getElementById('abxName').value;
+
+appendSummary(
+'Antibiotic : ' +
+status +
+' | ' +
+drug
+);
+
+}
+
+/* ======================================================
+IVF
+====================================================== */
+
+function saveIVF(){
+
+const type =
+document.getElementById('ivfType').value;
+
+const rate =
+document.getElementById('ivfRate').value;
+
+const side =
+document.getElementById('ivfSide').value;
+
+appendSummary(
+'IVF : ' +
+type +
+' | ' +
+rate +
+' ml/hr | ' +
+side
+);
+
+}
+
+function saveLoadIVF(){
+
+const status =
+document.getElementById('loadStatus').value;
+
+const type =
+document.getElementById('loadType').value;
+
+const volume =
+document.getElementById('loadVolume').value;
+
+appendSummary(
+'Load IVF : ' +
+status +
+' | ' +
+type +
+' | ' +
+volume +
+' ml'
+);
+
+}
+
+</script>
+<!-- ================================================= -->
+<!-- PART 3 -->
+<!-- ================================================= -->
+
+<!-- ================================================= -->
+<!-- EKG -->
+<!-- ================================================= -->
+
+<div class="card">
+
+<h2>🗒️ EKG 12 Lead</h2>
+
+<div class="grid">
+
+<div>
+
+<label>Status</label>
+
+<select id="ekgStatus">
+<option>Yes</option>
+<option>No</option>
+</select>
+
+</div>
+
+<div>
+
+<label>เวลา</label>
+
+<div class="flex">
+
+<input type="time" id="ekgTime">
+
+<button onclick="setNow('ekgTime')">
+Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<button style="margin-top:20px;"
+onclick="saveEKG()">
+Save EKG
+</button>
+
+</div>
+
+<!-- ================================================= -->
+<!-- CXR -->
+<!-- ================================================= -->
+
+<div class="card">
+
+<h2>🩻 CXR</h2>
+
+<div class="grid">
+
+<div>
+
+<label>Status</label>
+
+<select id="cxrStatus">
+<option>Yes</option>
+<option>No</option>
+</select>
+
+</div>
+
+<div>
+
+<label>เวลา</label>
+
+<div class="flex">
+
+<input type="time" id="cxrTime">
+
+<button onclick="setNow('cxrTime')">
+Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<textarea
+id="cxrResult"
+placeholder="ผล CXR">
+</textarea>
+
+<button style="margin-top:20px;"
+onclick="saveCXR()">
+Save CXR
+</button>
+
+</div>
+
+<!-- ================================================= -->
+<!-- ULTRASOUND -->
+<!-- ================================================= -->
+
+<div class="card">
+
+<h2>📹 Ultrasound</h2>
+
+<div class="grid">
+
+<div>
+
+<label>ชนิด Ultrasound</label>
+
+<select id="usType">
+<option>Upper abdomen</option>
+<option>Lower abdomen</option>
+<option>KUB</option>
+<option>Gyne</option>
+<option>IVC</option>
+<option>Echo</option>
+</select>
+
+</div>
+
+<div>
+
+<label>เวลา</label>
+
+<div class="flex">
+
+<input type="time" id="usTime">
+
+<button onclick="setNow('usTime')">
+Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<textarea
+id="usResult"
+placeholder="ผล Ultrasound">
+</textarea>
+
+<button style="margin-top:20px;"
+onclick="saveUltrasound()">
+Save Ultrasound
+</button>
+
+<hr style="margin:30px 0;">
+
+<h2>🔬 IVC</h2>
+
+<div class="grid">
+
+<div>
+
+<label>Mode</label>
+
+<select id="ivcMode">
+<option>CI</option>
+<option>DI</option>
+</select>
+
+</div>
+
+<div>
+
+<label>%</label>
+
+<input type="number" id="ivcPercent">
+
+</div>
+
+<div>
+
+<label>เวลา</label>
+
+<div class="flex">
+
+<input type="time" id="ivcTime">
+
+<button onclick="setNow('ivcTime')">
+Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<button style="margin-top:20px;"
+onclick="saveIVC()">
+Save IVC
+</button>
+
+</div>
+
+<!-- ================================================= -->
+<!-- NG / FOLEY -->
+<!-- ================================================= -->
+
+<div class="card">
+
+<h2>🆖 Retain NG</h2>
+
+<div class="grid">
+
+<div>
+
+<label>Status</label>
+
+<select id="ngStatus">
+<option>Yes</option>
+<option>No</option>
+</select>
+
+</div>
+
+<div>
+
+<label>No</label>
+
+<input type="text" id="ngNo">
+
+</div>
+
+<div>
+
+<label>เวลา</label>
+
+<div class="flex">
+
+<input type="time" id="ngTime">
+
+<button onclick="setNow('ngTime')">
+Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<button style="margin-top:20px;"
+onclick="saveNG()">
+Save NG
+</button>
+
+<hr style="margin:30px 0;">
+
+<h2>🚽 Retain Foley Catheter</h2>
+
+<div class="grid">
+
+<div>
+
+<label>Status</label>
+
+<select id="foleyStatus">
+<option>Yes</option>
+<option>No</option>
+</select>
+
+</div>
+
+<div>
+
+<label>No</label>
+
+<input type="text" id="foleyNo">
+
+</div>
+
+<div>
+
+<label>เวลา</label>
+
+<div class="flex">
+
+<input type="time" id="foleyTime">
+
+<button onclick="setNow('foleyTime')">
+Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<button style="margin-top:20px;"
+onclick="saveFoley()">
+Save Foley
+</button>
+
+</div>
+
+<!-- ================================================= -->
+<!-- MEDICATION -->
+<!-- ================================================= -->
+
+<div class="card">
+
+<h2>💊💉 Medication Record</h2>
+
+<textarea
+id="medicationRecord">
+</textarea>
+
+<div class="flex" style="margin-top:15px;">
+
+<input type="time" id="medicationTime">
+
+<button onclick="setNow('medicationTime')">
+Now
+</button>
+
+<button onclick="saveMedication()">
+Save Medication
+</button>
+
+</div>
+
+</div>
+
+<!-- ================================================= -->
+<!-- RE-ASSESSMENT -->
+<!-- ================================================= -->
+
+<div class="card">
+
+<h2>🆘 Re-assessment ABCD</h2>
+
+<!-- AIRWAY -->
+
+<div class="section-title">
+Airway
+</div>
+
+<div class="grid">
+
+<div>
+
+<select id="reAirway">
+<option>Pass</option>
+<option>Not pass</option>
+</select>
+
+</div>
+
+<div>
+
+<div class="flex">
+
+<input type="time" id="reAirwayTime">
+
+<button onclick="setNow('reAirwayTime')">
+Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- BREATHING -->
+
+<div class="section-title">
+Breathing
+</div>
+
+<div class="grid">
+
+<div>
+
+<select id="reBreathing">
+<option>Pass</option>
+<option>Not pass</option>
+</select>
+
+</div>
+
+<div>
+
+<div class="flex">
+
+<input type="time" id="reBreathingTime">
+
+<button onclick="setNow('reBreathingTime')">
+Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CIRCULATION -->
+
+<div class="section-title">
+Circulation
+</div>
+
+<div class="grid">
+
+<div>
+
+<select id="reCirculation">
+<option>Pass</option>
+<option>Not pass</option>
+</select>
+
+</div>
+
+<div>
+
+<div class="flex">
+
+<input type="time" id="reCirculationTime">
+
+<button onclick="setNow('reCirculationTime')">
+Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- DISABILITY -->
+
+<div class="section-title">
+Disability
+</div>
+
+<div class="grid">
+
+<div>
+
+<select id="reDisability">
+<option>Pass</option>
+<option>Not pass</option>
+</select>
+
+</div>
+
+<div>
+
+<div class="flex">
+
+<input type="time" id="reDisabilityTime">
+
+<button onclick="setNow('reDisabilityTime')">
+Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<button style="margin-top:20px;"
+onclick="saveReassessment()">
+Save Re-assessment
+</button>
+
+</div>
+
+<!-- ================================================= -->
+<!-- DISPOSITION -->
+<!-- ================================================= -->
+
+<div class="card">
+
+<h2>🚑 Disposition</h2>
+
+<div class="grid">
+
+<div>
+
+<label>Status</label>
+
+<select id="dispositionStatus">
+<option>Refer out</option>
+<option>Admit ward</option>
+<option>Discharge</option>
+</select>
+
+</div>
+
+<div>
+
+<label>สถานที่</label>
+
+<input type="text" id="dispositionPlace">
+
+</div>
+
+<div>
+
+<label>เวลา</label>
+
+<div class="flex">
+
+<input type="time" id="dispositionTime">
+
+<button onclick="setNow('dispositionTime')">
+Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<button style="margin-top:20px;"
+onclick="saveDisposition()">
+Save Disposition
+</button>
+
+</div>
+
+<!-- ================================================= -->
+<!-- ASSESSMENT -->
+<!-- ================================================= -->
+
+<div class="card">
+
+<h2>📝 Assessment Record</h2>
+
+<textarea
+id="assessmentText">
+</textarea>
+
+<div class="flex" style="margin-top:15px;">
+
+<button onclick="saveAssessment()">
+Save Assessment
+</button>
+
+</div>
+
+</div>
+
+<!-- ================================================= -->
+<!-- ALARM -->
+<!-- ================================================= -->
+
+<div class="card">
+
+<h2>🚨 Alarm Record</h2>
+
+<textarea
+id="alarmText">
+</textarea>
+
+<div class="flex" style="margin-top:15px;">
+
+<button onclick="saveAlarm()">
+Save Alarm
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+/* ======================================================
+EKG
+====================================================== */
+
+function saveEKG(){
+
+const status =
+document.getElementById('ekgStatus').value;
+
+appendSummary(
+'EKG 12 Lead : ' + status
+);
+
+}
+
+/* ======================================================
+CXR
+====================================================== */
+
+function saveCXR(){
+
+const status =
+document.getElementById('cxrStatus').value;
+
+const result =
+document.getElementById('cxrResult').value;
+
+appendSummary(
+'CXR : ' +
+status +
+' | ' +
+result
+);
+
+}
+
+/* ======================================================
+ULTRASOUND
+====================================================== */
+
+function saveUltrasound(){
+
+const type =
+document.getElementById('usType').value;
+
+const result =
+document.getElementById('usResult').value;
+
+appendSummary(
+'Ultrasound : ' +
+type +
+' | ' +
+result
+);
+
+}
+
+function saveIVC(){
+
+const mode =
+document.getElementById('ivcMode').value;
+
+const percent =
+document.getElementById('ivcPercent').value;
+
+appendSummary(
+'IVC : ' +
+mode +
+' | ' +
+percent +
+'%'
+);
+
+}
+
+/* ======================================================
+NG / FOLEY
+====================================================== */
+
+function saveNG(){
+
+const status =
+document.getElementById('ngStatus').value;
+
+const no =
+document.getElementById('ngNo').value;
+
+appendSummary(
+'Retain NG : ' +
+status +
+' | No. ' +
+no
+);
+
+}
+
+function saveFoley(){
+
+const status =
+document.getElementById('foleyStatus').value;
+
+const no =
+document.getElementById('foleyNo').value;
+
+appendSummary(
+'Retain Foley : ' +
+status +
+' | No. ' +
+no
+);
+
+}
+
+/* ======================================================
+MEDICATION
+====================================================== */
+
+function saveMedication(){
+
+const med =
+document.getElementById('medicationRecord').value;
+
+appendSummary(
+'Medication : ' + med
+);
+
+}
+
+/* ======================================================
+RE-ASSESSMENT
+====================================================== */
+
+function saveReassessment(){
+
+const airway =
+document.getElementById('reAirway').value;
+
+const breathing =
+document.getElementById('reBreathing').value;
+
+const circulation =
+document.getElementById('reCirculation').value;
+
+const disability =
+document.getElementById('reDisability').value;
+
+appendSummary(
+'Re-assessment ABCD : ' +
+'A=' + airway +
+' | B=' + breathing +
+' | C=' + circulation +
+' | D=' + disability
+);
+
+}
+
+/* ======================================================
+DISPOSITION
+====================================================== */
+
+function saveDisposition(){
+
+const status =
+document.getElementById('dispositionStatus').value;
+
+const place =
+document.getElementById('dispositionPlace').value;
+
+appendSummary(
+'Disposition : ' +
+status +
+' | ' +
+place
+);
+
+}
+
+/* ======================================================
+ASSESSMENT
+====================================================== */
+
+function saveAssessment(){
+
+const assessment =
+document.getElementById('assessmentText').value;
+
+appendSummary(
+'Assessment : ' + assessment
+);
+
+}
+
+/* ======================================================
+ALARM
+====================================================== */
+
+function saveAlarm(){
+
+const alarm =
+document.getElementById('alarmText').value;
+
+appendSummary(
+'Alarm : ' + alarm
+);
+
+}
+
+</script>
+
 </body>
 </html>
